@@ -38,11 +38,7 @@
           <input type="text" id="dropoff_latitude" name="dropoff_latitude" placeholder="Dropoff Latitude" required>
 
           <input type="number" name="passenger_count" placeholder="Passenger Count" min="1" required>
-          <select name="model_type" required>
-            <option value="linear">Linear Regression</option>
-            <option value="random_forest">Random Forest</option>
-            <option value="xgboost">XGBoost</option>
-          </select>
+
           <button type="submit" class="btn">Predict Fare</button>
         </form>
         {% if fare %}
