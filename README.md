@@ -10,28 +10,24 @@ Our Cab Fare Prediction Web Application utilizes machine learning algorithms to 
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Machine Learning Models Used](#machine-learning-models-used)
-5. [Contributing](#contributing)
-6. [License](#license)
-7. [Contact](#contact)
+5. [License](#license)
 
 
 ## Features
 
-- Predict cab fares based on input parameters such as distance and time.
+- Predict cab fares based on input parameters such as distance, time and weather.
 - Integration with Google Maps API for location services and route calculation.
-- Responsive design for optimal viewing on all devices.
+- Responsive design for optimal viewing.
 - User-friendly interface for inputting ride details.
 - Integration with machine learning model trained on a dataset from Kaggle.
-- Secure transactions and user authentication.
 
 ## Installation
-
 To run the Cab Fare Prediction Web Application locally, follow these steps:
 
 1. **Download the Code:**
    - Clone the repository using Git:
      ```bash
-     git clone https://github.com/mridul0703/Cab-Fare-Prediction-ML-Web-Deployment.git
+     https://github.com/aryansingla45/Cab-Fare-Prediction-.git
      ```
    - Alternatively, you can download the code as a ZIP file and extract it to your desired location.
 
@@ -39,7 +35,7 @@ To run the Cab Fare Prediction Web Application locally, follow these steps:
    - Open a terminal or command prompt.
    - Change directory to the project directory:
      ```bash
-     cd Cab-Fare-Prediction-ML-Web-Deployment
+     cd Cab-Fare-Prediction
      ```
 
 3. **Install Required Libraries:**
@@ -88,24 +84,11 @@ The Cab Fare Prediction Web Application utilizes various machine learning models
 
 These models are trained on historical data to provide accurate fare predictions for different ride scenarios.
 
-## Contributing
-
-We welcome contributions to enhance the features and usability of our Cab Fare Prediction Web Application. To contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Commit your changes and push to your fork.
-4. Submit a pull request to the main repository.
-
-Please ensure your code follows our coding standards and includes relevant documentation.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Contact
 
-For any inquiries or feedback, please contact us at [email@example.com](mailto:mridulmkumar07@gmail.com).
 ```
 
 Feel free to adjust any details or add additional sections as needed!
