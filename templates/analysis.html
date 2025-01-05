@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/analysis-styles.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict">Predict</a></li>
+        <li><a href="/analysis" class="active">Analysis</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <header>
+    <div class="container">
+      <h1>Analysis Dashboard</h1>
+      <p>Explore the performance of different machine learning models used in our predictions.</p>
+    </div>
+  </header>
+  
+  <main>
+    <!-- Accuracy Section -->
+    <section class="analysis-section">
+      <div class="content">
+        <div class="text">
+          <h2>Model Accuracy Comparison</h2>
+          <p>
+            Accuracy measures the percentage of correctly predicted instances. 
+            Among the models used, Histogram-based Gradient Boosting Regressor and XGBoost stood out with a remarkable accuracy of 97.29%. 
+            Random Forest and Voting Regressor followed closely at 94.59%, demonstrating consistent performance.
+          </p>
+          <p>
+            Models like Bagging Regressor and Linear SVR were less accurate, emphasizing the need for advanced ensembling or fine-tuning.
+          </p>
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/accuracy_chart.png') }}" alt="Model Accuracy Chart">
+        </div>
+      </div>
+    </section>
+    
+    <!-- MAE Section -->
+    <section class="analysis-section">
+      <div class="content">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/MAE_chart.png') }}" alt="Mean Absolute Error Chart">
+        </div>
+        <div class="text">
+          <h2>Mean Absolute Error (MAE)</h2>
+          <p>
+            Mean Absolute Error (MAE) represents the average magnitude of errors in predictions, providing a clearer perspective on a model's precision.
+            Random Forest achieved the lowest MAE at 2.51, closely followed by XGBoost at 2.64, proving their robustness in fare prediction.
+          </p>
+          <p>
+            Models with higher MAE, such as Linear SVR and Bagging Regressor, indicated potential room for improvement in handling complex patterns.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- RMSE Section -->
+    <section class="analysis-section">
+      <div class="content">
+        <div class="text">
+          <h2>Root Mean Squared Error (RMSE)</h2>
+          <p>
+            RMSE provides a more weighted analysis of prediction errors, penalizing large deviations more than MAE. 
+            Random Forest demonstrated a solid RMSE of 4.41, with XGBoost also performing well at 4.88.
+          </p>
+          <p>
+            Models like Linear Regression and Linear SVR, while offering quicker predictions, had higher RMSE values, indicating limitations with outlier predictions.
+          </p>
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/rmse_chart.png') }}" alt="Root Mean Squared Error Chart">
+        </div>
+      </div>
+    </section>
+    
+    <!-- Placeholder Sections for Additional Plots -->
+    <section class="analysis-section">
+      <div class="content">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/mae_intervals.png') }}" alt="MAE After Intervals">
+        </div>
+        <div class="text">
+          <h2>MAE Reduction Over Time</h2>
+          <p>
+            The "Mean Absolute Error (MAE) After Intervals" chart illustrates the progressive reduction in MAE as computational time (denoted in computational units, $) increases. 
+            This trend highlights the model's ability to refine its predictions with additional training and optimization steps, achieving greater precision over time.
+          </p>
+          <p>
+            Observing the decline in MAE demonstrates the effectiveness of the model’s iterative improvements, ensuring more accurate fare predictions while maintaining computational efficiency.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="analysis-section">
+      <div class="content">
+        <div class="text">
+          <h2>Average Trip Distance</h2>
+          <p>
+            The "Distribution of Trip Distance" chart visualizes the spread of trip distances in kilometers across the dataset. The blue histogram indicates the frequency of trips within specific distance ranges, while the dashed line highlights the average trip distance in kilometers.
+          </p>
+          <p>
+            This visualization provides insights into the typical trip lengths and helps identify outliers or trends in the dataset, which can be valuable for understanding travel patterns and optimizing predictions.
+          </p>
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/avg_trip_distance.png') }}" alt="Average Trip Distance">
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="analysis-section">
+      <div class="content">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/avg_fare_weekday.png') }}" alt="Average Fare Per Weekday">
+        </div>
+        <div class="text">
+          <h2>Average Fare Amount by Weekday</h2>
+          <p>
+            This bar chart illustrates the mean fare amount ($) for each day of the week, offering insights into fare trends based on weekdays. 
+            The heights of the bars represent the average fare collected on specific days, helping to identify which days typically see higher or lower fare amounts.
+          </p>
+          <p>
+            Such patterns can provide valuable business insights for optimizing operations, identifying peak travel days, and enhancing model predictions by factoring in weekday trends.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    
+    <section class="analysis-section">
+      <div class="content">
+        <div class="text">
+          <h2>Fare Frequency by Hour</h2>
+          <p>
+            This bar chart showcases the distribution of the number of fares across different hours of the day. Each bar represents the frequency of trips during a specific hour, revealing peak and off-peak travel times.
+          </p>
+          <p>
+            This visualization is instrumental in understanding passenger demand patterns throughout the day. It helps identify rush hours or periods of low activity, which can be leveraged for operational optimization and improved fare prediction accuracy.
+          </p>
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/fare_by_hour.png') }}" alt="Fare Frequency By Hour">
+        </div>
+      </div>
+    </section>
+    
+    
+    <!-- <section class="analysis-section">
+      <div class="content">
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/fare_histogram.png') }}" alt="Fare Amount Histogram">
+        </div>
+        <div class="text">
+        </div>
+      </div>
+    </section> -->
+    
+    <!-- <section class="analysis-section">
+      <div class="content">
+        <div class="text">
+        </div>
+        <div class="image">
+          <img src="{{ url_for('static', filename='images/passenger_frequency.png') }}" alt="Passenger Frequency">
+        </div>
+      </div>
+    </section> -->
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Cab Fare Prediction. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

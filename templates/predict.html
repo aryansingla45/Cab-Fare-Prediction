@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Predict Cab Fare</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/predict">Predict</a></li>
+        <li><a href="/analysis">Analysis</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <header>
+    <div class="container">
+      <h1>Predict Cab Fare</h1>
+    </div>
+  </header>
+  
+  <main>
+    <div class="container">
+      <div class="map-section">
+        <div id="map"></div>
+      </div>
+      
+      <div class="form-section">
+        <form action="/predict" method="POST">
+          <input type="datetime-local" name="pickup_datetime" required>
+          <input type="text" id="pickup_longitude" name="pickup_longitude" placeholder="Pickup Longitude" required>
+          <input type="text" id="pickup_latitude" name="pickup_latitude" placeholder="Pickup Latitude" required>
+          <input type="text" id="dropoff_longitude" name="dropoff_longitude" placeholder="Dropoff Longitude" required>
+          <input type="text" id="dropoff_latitude" name="dropoff_latitude" placeholder="Dropoff Latitude" required>
+
+          <input type="number" name="passenger_count" placeholder="Passenger Count" min="1" required>
+
+          <button type="submit" class="btn">Predict Fare</button>
+        </form>
+        {% if fare %}
+          <div class="result">
+            <p>{{ fare }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <p>&copy; 2024 Cab Fare Prediction</p>
+  </footer>
+
+  <script>
+    // Initialize the map
+    function initMap() {
+      const mapDiv = document.getElementById("map");
+      const map = new google.maps.Map(mapDiv, {
+        center: { lat: 40.7128, lng: -74.0060 }, // New York City coordinates
+        zoom: 12 // Adjust zoom level as needed
+      });
+
+      // Initialize draggable markers for pickup and dropoff locations
+      const pickupMarker = new google.maps.Marker({
+        position: { lat: 40.7128, lng: -74.0060 }, // Default pickup location (New York City)
+        map: map,
+        draggable: true,
+        title: 'Pickup Location'
+      });
+
+      const dropoffMarker = new google.maps.Marker({
+        position: { lat: 40.7128, lng: -74.0060 }, // Default dropoff location (New York City)
+        map: map,
+        draggable: true,
+        title: 'Dropoff Location'
+      });
+
+      // Event listener for when the pickup marker is dragged
+      pickupMarker.addListener('dragend', function(event) {
+        document.getElementById('pickup_latitude').value = event.latLng.lat();
+        document.getElementById('pickup_longitude').value = event.latLng.lng();
+      });
+
+      // Event listener for when the dropoff marker is dragged
+      dropoffMarker.addListener('dragend', function(event) {
+        document.getElementById('dropoff_latitude').value = event.latLng.lat();
+        document.getElementById('dropoff_longitude').value = event.latLng.lng();
+      });
+    }
+
+    // Load the Google Maps API script
+    function loadMapScript() {
+      const script = document.createElement("script");
+      script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyApb69fNQll1kFrfUP-xTIrrOC6xz2MDxA&callback=initMap";
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    // Call the function to load the Google Maps API
+    loadMapScript();
+  </script>
+</body>
+</html>
