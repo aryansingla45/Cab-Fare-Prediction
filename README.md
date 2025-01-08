@@ -66,8 +66,12 @@ Use the Cab Fare Prediction Web Application as follows:
 - **Input Ride Details**: Enter details such as pickup and drop-off locations, date, and time.
 - **View Predicted Fare**: Get the predicted fare for the ride based on the entered details.
 - **Map Integration**: View the route on Google Maps and get real-time fare estimation.
-- **Secure Transactions**: Ensure secure transactions with user authentication and encryption.
 
+## Future Scope
+- **Secure Transactions**: Ensure secure transactions with user authentication and encryption.
+- **GPS Integration**: Integrate GPS Technology to calculate dynamic fare based on traffic and different routes.
+
+  
 ## Machine Learning Models Used
 
 The Cab Fare Prediction Web Application utilizes various machine learning models for predicting cab fares based on input parameters such as distance, time, and location. The models employed in this project include:
